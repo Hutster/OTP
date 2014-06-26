@@ -15,7 +15,7 @@ if (!mysqli_query($con,$sql))
   die('Error: ' . mysqli_error($con));
   }
 
-//hello my name is sean
+//hello my name is sean crowe
 
 mysqli_close($con);
 
