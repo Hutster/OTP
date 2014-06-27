@@ -8,7 +8,6 @@ require 'config/twilio-connect.php';    //twilio credentials...not sure if this 
 ////////////////////
 $user_phone = $_POST[phone];               //grabs the number using session var
 $user_phone = chr(43) . "1" . $user_phone;    //add a +1 in front of the phone to make twilio happy
-$twilio_num = '+12243741995';  //twilio phone number
 
 ////insert user info in database////
 ///////////////////////////////////
