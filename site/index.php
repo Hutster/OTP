@@ -81,7 +81,7 @@
             </div>
             
             <div id="mc_embed_signup">
-                <form name="main" action="insert.php" class="validate" method="post" onsubmit="return(validate());" novalidate>
+                <form name="main" action="db-inserts.php" class="validate" method="post" onsubmit="return(validate());" novalidate>
                     <div class="row">
                     <input id="contact-form" type="text" name="name" class="textarea" placeholder="first name" tabindex="1">
                     </div>
