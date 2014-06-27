@@ -15,6 +15,9 @@ $twilio_num = '+12243741995';  //twilio phone number
 $sql="  INSERT INTO user (f_name, phone) 
         VALUES ('$_POST[name]','$user_phone')"; //inserts in user table with first name and phone from landing page
 
+if (!mysqli_query($con,$sql)) {die('Error: ' . mysqli_error($con));}
+mysqli_close($con);
+
 ////Send confirmation text////
 /////////////////////////////
 $sms = $client->account->messages->sendMessage(
