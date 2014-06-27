@@ -83,11 +83,11 @@
             <div id="mc_embed_signup">
                 <form name="main" action="insert.php" class="validate" method="post" onsubmit="return(validate());" novalidate>
                     <div class="row">
-                    <input id="contact-form" type="text" value="name" name="name" class="textarea" placeholder="first name" tabindex="1">
+                    <input id="contact-form" type="text" name="name" class="textarea" placeholder="first name" tabindex="1">
                     </div>
                     
                     <div class="row"> 
-                        <input id="contact-form" type="tel" value="phone"  name="phone" class="textarea" maxlength="15" size="10" placeholder="phone number " tabindex="2">
+                        <input id="contact-form" type="tel" name="phone" class="textarea" maxlength="15" size="10" placeholder="phone number " tabindex="2">
                     </div>
                     
                     <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
