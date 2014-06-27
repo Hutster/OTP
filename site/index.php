@@ -26,6 +26,38 @@
 	<!--[if lt IE 9]>
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
+    
+    <script type="text/javascript">
+        function validate()
+        {
+            
+           if( document.main.name.value == "" || document.main.name.length < 2)
+           {
+             alert( "Please provide your name!" );
+             document.main.name.focus() ;
+             return false;
+           }
+           if( document.main.phone.value == "" )
+           {
+             alert( "Please provide your phone number!" );
+             document.main.phone.focus() ;
+             return false;
+           }
+            
+           var newPhone = document.main.phone.value
+           newPhone = newPhone.replace(/[^0-9]/g, '');
+            
+           if( newPhone.length != 10 )
+           {
+             alert( "Please provide a 10 digit phone number!" );
+             document.main.phone.focus() ;
+             return false;
+           } 
+            
+           return( true );
+        }
+        //-->
+    </script>
 </head>
 <body>
 
@@ -49,17 +81,13 @@
             </div>
             
             <div id="mc_embed_signup">
-                <form action="insert.php" class="validate" method="post" novalidate>
+                <form name="main" action="insert.php" class="validate" method="post" onsubmit="return(validate());" novalidate>
                     <div class="row">
-                    <input id="contact-form" type="text" value="name" name="name" class="textarea <?php echo $firstER ?>" placeholder="first name" tabindex="1">
-                        <?php echo "<p class='note'>".$msg_name."</p>";?>
-                        <?php echo "<p class='note'>".$msg2_name."</p>";?>
+                    <input id="contact-form" type="text" value="name" name="name" class="textarea" placeholder="first name" tabindex="1">
                     </div>
                     
                     <div class="row"> 
-                        <input id="contact-form" type="tel" value="phone"  name="phone" class="textarea <?php echo $phoneER ?>" maxlength="15" size="10" placeholder="phone number " tabindex="2">
-                        <?php echo "<p class='note'>".$msg_phone."</p>";?>
-                        <?php echo "<p class='note'>".$msg2_phone."</p>";?>
+                        <input id="contact-form" type="tel" value="phone"  name="phone" class="textarea" maxlength="15" size="10" placeholder="phone number " tabindex="2">
                     </div>
                     
                     <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
