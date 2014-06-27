@@ -1,0 +1,241 @@
+html { 
+    min-height: 100%;
+    background-size: cover;
+    background-image: url('/../images/background.jpg');
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    }
+    
+    #logo{
+        width: 45%;
+        min-width: 300px;
+        display:block;
+        margin: 2% auto;
+    }
+    
+    h1 { font-size: 35px; line-height: 40px; margin-bottom: 10px; }
+	h2 { font-size: 28px; line-height: 34px; margin-bottom: 8px; }
+    
+    h1{ 
+        font-family: 'Ubuntu', sans-serif; 
+        font-weight:400; 
+        color: white;
+    }
+
+    h2{
+        font-family: 'Ubuntu', sans-serif;
+        font-weight:400;
+        color: white;
+    }
+    
+    h1 strong{
+        font-weight:700;
+        color: #339966;  
+    }
+ 
+    h2{
+        font-family: 'Ubuntu', sans-serif;
+        font-weight: 300;
+        color: white;
+    }
+    
+    h2 strong{
+        font-weight:700;
+        color: #339966;  
+    }
+    
+    input{
+            font-family: 'Ubuntu', sans-serif;
+            font-weight: 400;
+            border-radius:6px;
+            margin: 2%;
+        }
+    
+    .namefield {
+        display: inline-block;
+        min-width: 250px;
+    }
+
+    input.name{
+        text-align: center;
+        width: 42%;
+        min-width: 150px;
+        font-size: 1.2em;
+        line-height: 1.4em;
+        vertical-align: center;
+        display: inline;
+        margin-left: 3px;
+        margin-right: 3px;
+    }
+
+    input.textarea{
+        text-align: center;
+        margin: 0 auto;
+        width: 80%;
+        min-width: 250px;
+        font-size: 1.2em;
+        line-height: 1.4em;
+        vertical-align: center;
+    }
+
+    .starting {
+        font-size: 1.4em;
+        line-height: 1.4em;
+        vertical-align: center;
+        display: inline-block;
+        font-family: 'Ubuntu', sans-serif;
+        font-weight: 300;
+        color: white;
+        margin: 0 15px;
+        margin-bottom: 10px;
+    }
+    
+    .shading{
+        background: rgba(0, 0, 0, .5);
+        margin: 0 auto;
+        margin-bottom: 50px;
+        padding: 3% 0 0 0;
+    }
+    
+    #radios {
+        width: 90%;
+        min-width: 250px;
+        margin: 0 auto;
+        margin-top: 15px;
+        margin-bottom: -15px;
+    }
+    
+    input#submit{
+        border:0px solid #f4f4f4;
+        cursor:pointer;
+        font-family: 'Ubuntu', sans-serif;
+        font-weight: 700; 
+        font-size: 1.2em;
+        height: 36px;
+        width: 80%;
+        min-width: 262px;
+        margin-top: 0px;
+
+        background-color: #4ba614; 
+        background-image: -webkit-gradient(linear, left top, left bottom, from(#339966), to(#008c00));
+        background-image: -webkit-linear-gradient(top, #339966, #008c00);
+        background-image: -moz-linear-gradient(top, #339966, #008c00);
+        background-image: -ms-linear-gradient(top, #339966, #008c00);
+        background-image: -o-linear-gradient(top, #339966, #008c00);
+        background-image: linear-gradient(to bottom, #339966, #008c00);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#339966, endColorstr=#008c00);
+        text-shadow: -1px -1px 0 rgba(0,0,0,0.3);font-weight:bold; color: #FFFFFF;
+    }
+    
+    input#submit:hover {
+                    -webkit-transition: background-image .5s ease-in;
+            -moz-transition: background-iamge .5s ease-in;
+            -o-transition: background-image .5s ease-in;
+        transition: background-image .5s ease-in;
+        background-color: #36780f; 
+        background-image: -webkit-gradient(linear, left top, left bottom, from(#36780f), to(#005900));
+        background-image: -webkit-linear-gradient(top, #36780f, #005900);
+        background-image: -moz-linear-gradient(top, #36780f, #005900);
+        background-image: -ms-linear-gradient(top, #36780f, #005900);
+        background-image: -o-linear-gradient(top, #36780f, #005900);
+        background-image: linear-gradient(to bottom, #36780f, #005900);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#36780f, endColorstr=#005900);
+    }
+    
+    ol.steps {
+        margin: 0 auto;
+        width: 250px;
+    }
+
+    li.radios{
+        line-height: 18px;
+        margin-bottom: 12px;
+        display: inline-block;
+        width: 190px;
+    }
+    
+    label {
+        display: inline;
+        color: white;
+        font-family: 'Ubuntu', sans-serif;
+        font-weight: 400;
+        font-size: 1.2em;
+        margin: 0 0 0 3px;
+        vertical-align: top;
+    }
+    
+    input[value="1"] {
+        margin-left: 0px;
+    }
+    
+    #mc_embed_signup {
+        border: 1px solid rgba(255, 255, 255, .5);
+        width: 50%;
+        min-width: 276px;
+        margin: 0 auto;
+        margin-bottom: 50px;
+        text-align: center;
+    }
+
+    #list{
+        text-align: left;
+    }
+
+    #landing{
+        text-align: center;
+    }
+
+    input.validated {
+        background:hsl(120, 50%, 90%);
+        border-color:hsl(120, 50%, 50%);
+        color: black;
+        font-weight: 400;
+    }
+
+    input.papilated {
+        border-color:hsl(0, 50%, 50%);
+        background:hsl(0, 50%, 90%);
+        color: red;
+        font-weight: 700;
+    }
+
+    .process{
+        text-align: center;
+    }
+
+    .steps{
+        margin-bottom: 10px;
+    }
+
+    .note {
+        color: #ff0000;
+        line-height: 1em;
+        margin: 5px auto;
+    }
+
+    .noteradio {
+        color: #ff0000;
+        line-height: 1em;
+        margin: 0 auto;
+        margin-top: -25px;
+        margin-bottom: 35px;
+    }
+
+    p{
+        font-family: 'Ubuntu', sans-serif;
+        font-weight:400;
+        color: white;
+        font-size: 14px; 
+        line-height: 16px;
+        font-style: italic;
+        margin-left: 20px;
+        margin-right: 20px;
+        
+    }
+
+    p a, a:link, a, a:active, a:visited {
+        color: #339966;
+        text-decoration: none;
+    }
+
+    a:hover {
+        color: #36780f; 
+    }
