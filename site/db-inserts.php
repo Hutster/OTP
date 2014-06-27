@@ -18,7 +18,7 @@ $sql="  INSERT INTO user (f_name, phone)
 ////Send confirmation text////
 /////////////////////////////
 $sms = $client->account->messages->sendMessage(
-            $twilio_num, $number, "Hey dude thanks for signing up with OTP! Respond with 'This is dope' to confirm your subsciption.");
+            $twilio_num, $user_phone, "Hey dude thanks for signing up with OTP! Respond with 'This is dope' to confirm your subsciption.");
  
 echo "Sent message to $name "; // Display a confirmation message on the screen
 
