@@ -131,7 +131,6 @@ if (isset($_POST['register'])) {
         // send mail
         mail($to, $subject, $message);
         
-        //we need this to not show up in the url
         header('Location: http://hutster.com/insert.php');
             exit();
         }
