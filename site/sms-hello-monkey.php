@@ -1,8 +1,11 @@
 <?php
+
+    require 'auth-sql.php';
+
 	header("content-type: text/xml");
 	echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
  
-    $phone = $_REQUEST['From'];
+    $user_phone = $_REQUEST['From'];
 	$message = $_REQUEST['Body'];
     
     $response = 'default';
@@ -16,18 +19,22 @@
     $rejection = 'Sorry, I didn\'t understand that. Reply with "boobs and ass" to become verified, or "FU" to unsubscribe.'; // Message of rejection
  
 	// Check if we've got good data
-	if ( (strlen($phone) >= 10) && (strlen($message) >= 1) ) {
+	if ( (strlen($user_phone) >= 10) && (strlen($message) >= 1) ) {
         
-        //Check what type of response we have
+        // Check what type of response we have now
+        
+        // Check if they are to be verified
         if ( strcasecmp($message, $verified ) == 0 ) {
             $response = $verifiedResponse;
             $success = true;
         }
         
+        // Check if they are to be unsubscribed
         elseif ( strcasecmp($message, $unsubscribe) == 0 ) {
             $response = $unsubscribeResponse;
             $success = true;
         }
+        
         
         else {
             $response = $rejection;
@@ -42,7 +49,7 @@
 	}
 
     echo '<Response>';
-	echo '<Message> Hello ' . $phone . '. ' . $response . '</Message>';
+	echo '<Message> Hello ' . $user_phone . '. ' . $response . '</Message>';
     
     /*
     if ( $success ) {
