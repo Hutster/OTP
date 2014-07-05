@@ -11,7 +11,7 @@ $result = $con->query("SELECT * FROM user WHERE user_phone = $user_phone ");
 while($row = $result->fetch_array()){ $user_id = $row['user_id']; }
 
 //check to see if user is already authenicated, incase they replay twice
-$check = $con->query("SELECT user_id FROM authenticate WHERE user_id = $user_id ");
+$check = "SELECT user_id FROM authenticate WHERE user_id = $user_id ";
 
 //if query fails (aka user not auth yet) then insert new auth row for user
 if(!mysqli_query($con,$check)) {
