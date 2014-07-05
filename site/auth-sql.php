@@ -11,17 +11,20 @@ $result = $con->query("SELECT * FROM user WHERE user_phone = $user_phone ");
 while($row = $result->fetch_array()){ $user_id = $row['user_id']; }
 
 //check to see if user is already authenicated, incase they replay twice
-$check = "SELECT user_id FROM authenticate WHERE user_id = $user_id ";
-$query = mysqli_query($con,$check);
+$check = $con->query("SELECT * FROM authenticate WHERE user_id = '$user_id' ");
 
-//if query fails (aka user not auth yet) then insert new auth row for user
-if($query == false) {
-    //mark user as authenticaed by inserting into auth table
-    $sql="INSERT INTO `authenticate`(`user_id`, `auth_bool`) VALUES ($user_id,true)"; 
-
-    //run query and check for error
-    if (!mysqli_query($con,$sql)) {die('Error: ' . mysqli_error($con));}
-    mysqli_close($con);
+//if check doesn't exist...error out
+if (!$check){
+  die($con->error);
 }
+//if the output has more than 0 rows...aka already authenicated
+if ($check->num_rows > 0){
+    //do something to alert user that he already is authenicated
+}else {
+    //mark user as authenticaed by inserting into auth table
+     $result = $con->query("INSERT INTO `authenticate`(`user_id`, `auth_bool`) VALUES ($user_id,true)"); 
+}
+
+    
 
 ?>
