@@ -12,11 +12,9 @@ while($row = $result->fetch_array()){ $user_id = $row['user_id']; }
 
 //check to see if user is already authenicated, incase they replay twice
 $check = $con->query("SELECT user_id FROM authenticate WHERE user_id = $user_id ");
-if (!mysqli_query($con,$check)) {die('Error: ' . mysqli_error($con));}
-    mysqli_close($con);
 
 //if query fails (aka user not auth yet) then insert new auth row for user
-if($query == false) {
+if(!mysqli_query($con,$check)) {
     //mark user as authenticaed by inserting into auth table
     $sql="INSERT INTO `authenticate`(`user_id`, `auth_bool`) VALUES ($user_id,true)"; 
 
