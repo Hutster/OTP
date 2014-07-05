@@ -1,8 +1,4 @@
 <?php
-
-    require 'auth-sql.php';
-
-	header("content-type: text/xml");
 	echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
  
     $user_phone = $_REQUEST['From'];
@@ -37,8 +33,8 @@
         
         
         else {
-            $response = $rejection;
-            $success = false;
+                $response = $rejection;
+                $success = false;
         }     
             
 	}
@@ -51,15 +47,10 @@
     echo '<Response>';
 	echo '<Message> Hello ' . $user_phone . '. ' . $response . '</Message>';
     
-    /*
+    
     if ( $success ) {
-    
-    <Redirect> 
-        ../nextInstructions 
-    </Redirect> 
+        require 'auth-sql.php';
     }
-    
-    */
 
 	echo '</Response>';
 ?>
