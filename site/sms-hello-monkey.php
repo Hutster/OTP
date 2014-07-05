@@ -39,7 +39,7 @@
         $success = false;
 	}
  
-	
+    echo '<Response>';
 	echo '<Message> Hello ' . $phone . ' . ' . $response . '</Message>';
     
     /*
