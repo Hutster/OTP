@@ -3,32 +3,34 @@
 	echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
  
     $phone = $_REQUEST['From'];
-	$message = $_REQUEST['Body']
+	$message = $_REQUEST['Body'];
     
+    $response = 'default';
     $success = false;
     $verified = 'boobs and ass';  // This is the reply necessary to gain a successful VERIFICATION
-    $verifiedResponse = 'You have been verified! Good thing you like boobs and ass.'  // Reply message for successful verification
+    $verifiedResponse = 'You have been verified! Good thing you like boobs and ass.';  // Reply message for successful verification
         
-    $unsubscribe = 'stop';  // This is the reply necessary to gain sucessful UNSUBSCRIBTION
-    $unsubscribeResponse = 'Well you are lame.' //  Reply message for successful unsubscribtion
+    $unsubscribe = 'FU';  // This is the reply necessary to gain sucessful UNSUBSCRIBTION
+    $unsubscribeResponse = 'Well you are lame.'; //  Reply message for successful unsubscribtion
         
-    $rejection = 'Sorry, I didn\'t understand that. Reply with "boobs and ass" to become verified, or "stop" to unsubscribe.'; // Message of rejection
+    $rejection = 'Sorry, I didn\'t understand that. Reply with "boobs and ass" to become verified, or "FU" to unsubscribe.'; // Message of rejection
  
 	// Check if we've got good data
-	if ( (strlen($phone) >= 10) && (strlen($message) > 0) ) {
+	if ( (strlen($phone) >= 10) && (strlen($message) >= 1) ) {
         
         //Check what type of response we have
-        if ( $message == $verified ) {
+        if ( strcasecmp($message, $verified ) == 0 ) {
             $response = $verifiedResponse;
             $success = true;
         }
         
-        else if ( $message == $unsubscribe ) {
+        elseif ( strcasecmp($message, $unsubscribe) == 0 ) {
             $response = $unsubscribeResponse;
             $success = true;
         }
         
         else {
+            $response = $rejection;
             $success = false;
         }     
             
@@ -38,9 +40,9 @@
 		$response = $rejection;
         $success = false;
 	}
- 
+
     echo '<Response>';
-	echo '<Message> Hello ' . $phone . ' . ' . $response . '</Message>';
+	echo '<Message> Hello ' . $phone . '. ' . $response . '</Message>';
     
     /*
     if ( $success ) {
