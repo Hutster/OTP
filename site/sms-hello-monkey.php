@@ -5,6 +5,7 @@
     $user_phone = $_REQUEST['From'];
 	$message = $_REQUEST['Body'];
     
+    ////code below should be replaced with a method////
     $check =$con->query( "SELECT auth FROM user WHERE user_id = '$user_id' ");
 
     //if false
