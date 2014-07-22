@@ -44,8 +44,12 @@
         $success = false;
 	}
 
+    //get the user name from our database
+    $result = $con->query("SELECT * FROM user WHERE user_phone = $user_phone ");
+    while($row = $result->fetch_array()){ $user_name = $row['user_fname']; }
+
     echo '<Response>';
-	echo '<Message> Hello ' . $user_phone . '. ' . $response . '</Message>';
+	echo '<Message> Hello ' . $user_name . '. ' . $response . '</Message>';
     
     
     if ( $success ) {
