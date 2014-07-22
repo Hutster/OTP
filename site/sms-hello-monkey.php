@@ -5,7 +5,7 @@
     $user_phone = $_REQUEST['From'];
 	$message = $_REQUEST['Body'];
     $user_id = $con->query("SELECT user_id FROM user WHERE user_phone = $user_phone "); //get user id from phone
-    $check =$con->query( "SELECT auth FROM user WHERE user_id = '$user_id' "); //check if authenticated
+    $check =$con->query( "SELECT auth FROM user WHERE user_id = $user_id "); //check if authenticated
 
     if ($check==false){
 
