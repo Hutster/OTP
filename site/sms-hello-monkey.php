@@ -7,7 +7,12 @@
     $user_id = $con->query("SELECT user_id FROM user WHERE user_phone = $user_phone "); //get user id from phone
     $check =$con->query( "SELECT auth FROM user WHERE user_id = $user_id "); //check if authenticated
 
-    if ($check==false){
+    //USER IS AUTHETICATED
+    if ($check->num_rows > 0){
+        $query = "INSERT INTO `messages`(`userID`, `content`) VALUES ($user_id,$message)";
+        mysqli_query($con,$query);
+        
+    }else{
 
         $response = 'default';
         $success = false;
@@ -75,12 +80,5 @@
         
     }
 
-
-    //USER IS AUTHETICATED
-    if ($check==true){
-        $query = "INSERT INTO `messages`(`userID`, `content`) VALUES ($user_id,$message)";
-        mysqli_query($con,$query);
-        
-    }
     
 ?>
