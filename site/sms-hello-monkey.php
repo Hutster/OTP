@@ -61,7 +61,7 @@
         $response = $verifiedResponse;
     }
 
-    else {
+    else if ( $success && $authSuccess == false) {
         $response = $repeatResponse;
     }
     
