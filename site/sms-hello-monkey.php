@@ -23,7 +23,7 @@
         
     }
     if ($check ==0){
-
+        
         $response = 'default';
         $success = false;
         $verified = 'boobs and ass';  // This is the reply necessary to gain a successful VERIFICATION
@@ -73,15 +73,10 @@
         echo '<Message> Hello ' . $user_name;
 
         if ( $success ) {
-            require 'auth-sql.php';    // Authenticate the insert
-        }
-
-        if ( $authSuccess ) {
-            $response = $verifiedResponse;
-        }
-
-        else if ( $success && $authSuccess == false) {
-            $response = $repeatResponse;
+             $query = "UPDATE user SET auth = '1' WHERE user_id = '$user_id'"; 
+             mysqli_query($con,$query);
+              $response = $verifiedResponse;
+            // Authenticate the insert
         }
 
         echo $response . '</Message>';
