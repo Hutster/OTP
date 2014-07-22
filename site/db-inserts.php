@@ -21,8 +21,8 @@ mysqli_close($con);
 ////Send confirmation text////
 /////////////////////////////
 $sms = $client->account->messages->sendMessage(
-            $twilio_num, $user_phone, "Hey " . $userfname . ", thanks for signing up with OTP! Respond with 'This is dope' to confirm your subsciption.");
+            $twilio_num, $user_phone, "Hey " . $user_fname . ", thanks for signing up with OTP! Respond with 'This is dope' to confirm your subsciption.");
  
-echo "Sent message to " . $userfname . "!"; // Display a confirmation message on the screen
+echo "Sent message to " . $user_fname . "!"; // Display a confirmation message on the screen
 
 ?>
