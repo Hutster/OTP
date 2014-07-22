@@ -2,19 +2,27 @@
 	echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
     require 'config/db-connect.php';        //databse connect
 
-//    $user_phone = $_REQUEST['From'];
-//	$message = $_REQUEST['Body'];
-    $user_phone = "+18472261310";
-	$message = "fail";
-    $user_id = $con->query("SELECT user_id FROM user WHERE user_phone = $user_phone "); //get user id from phone
-    $check =$con->query( "SELECT auth FROM user WHERE user_id = $user_id "); //check if authenticated
+    $user_phone = $_REQUEST['From'];
+	$message = $_REQUEST['Body'];
+//    $user_phone = "+13306714458";
+//	$message = "boobs and ass";
+
+    $result = $con->query("SELECT user_id FROM user WHERE user_phone = $user_phone "); //get user id from phone
+    while ($row = $result->fetch_assoc()) {$user_id = $row['user_id'];}
+    //echo $user_id;
+
+    $result = $con->query("SELECT auth FROM user WHERE user_id = $user_id "); //check if authenticated
+    while ($row = $result->fetch_assoc()) {$check = $row['auth'];}
+    //echo $check;
 
     //USER IS AUTHETICATED
-    if ($check->num_rows > 0){
-        $query = "INSERT INTO `messages`(`userID`, `content`) VALUES ($user_id,$message)";
+    if ($check == 1){
+        //echo "you're in the loop";
+        $query = "INSERT INTO messages(userID, content) VALUES ('$user_id','$message')";
         mysqli_query($con,$query);
         
-    }else{
+    }
+    if ($check ==0){
 
         $response = 'default';
         $success = false;
@@ -58,7 +66,6 @@
         }
 
         //get the user name from our database
-        require 'config/db-connect.php';        //databse connect
         $result = $con->query("SELECT * FROM user WHERE user_phone = $user_phone ");
         while($row = $result->fetch_array()){ $user_name = $row['user_fname']; }
 
