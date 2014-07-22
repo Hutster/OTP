@@ -2,7 +2,6 @@
 require 'config/db-connect.php';        //databse connect
 
 //get the current phone number and put it in the variable user_phone
-$user_phone = '+18472261310';
 
 //now query to get the user id from user table using the phone number
 $result = $con->query("SELECT * FROM user WHERE user_phone = $user_phone ");
