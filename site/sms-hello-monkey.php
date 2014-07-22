@@ -1,9 +1,12 @@
 <?php
 	echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
- 
+    require 'config/db-connect.php';        //databse connect
+
     $user_phone = $_REQUEST['From'];
 	$message = $_REQUEST['Body'];
     
+    $check =$con->query( "SELECT auth FROM user WHERE user_id = '$user_id' ");
+
     $response = 'default';
     $success = false;
     $verified = 'boobs and ass';  // This is the reply necessary to gain a successful VERIFICATION
