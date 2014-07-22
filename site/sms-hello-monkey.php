@@ -45,6 +45,7 @@
 	}
 
     //get the user name from our database
+    require 'config/db-connect.php';        //databse connect
     $result = $con->query("SELECT * FROM user WHERE user_phone = $user_phone ");
     while($row = $result->fetch_array()){ $user_name = $row['user_fname']; }
 
