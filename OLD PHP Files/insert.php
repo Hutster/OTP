@@ -15,7 +15,7 @@ if (!mysqli_query($con,$sql))
   die('Error: ' . mysqli_error($con));
   }
 
-//hello my name is sean and thomas
+// this is the update branch BOOM
 
 mysqli_close($con);
 
