@@ -10,7 +10,7 @@ $result = $con->query("SELECT * FROM user WHERE user_phone = $user_phone ");
 while($row = $result->fetch_array()){ $user_id = $row['user_id']; }
 
 //check to see if user is already authenicated, incase they replay twice
-$check = $con->query("SELECT * FROM authenticate WHERE user_id = '$user_id' ");
+$check = $con->query("SELECT auth FROM user WHERE user_id = '$user_id' ");
 
 //if check doesn't exist...error out
 if (!$check){
@@ -22,7 +22,7 @@ if ($check->num_rows > 0){
     $authSuccess = false;
 }else {
     //mark user as authenticaed by inserting into auth table
-    $result = $con->query("INSERT INTO `authenticate`(`user_id`, `auth_bool`) VALUES ($user_id,true)"); 
+    $result = $con->query("UPDATE user SET auth = 'true' WHERE user_id = $user_id"; 
     $authSuccess = true;
 }
 
