@@ -22,7 +22,7 @@
         mysqli_query($con,$query);
         
     }
-    if ($check ==0){
+    if ($check == 0){
         
         $response = 'default';
         $success = false;
@@ -75,7 +75,7 @@
         if ( $success ) {
              $query = "UPDATE user SET auth = '1' WHERE user_id = '$user_id'"; 
              mysqli_query($con,$query);
-              $response = $verifiedResponse;
+             $response = $verifiedResponse;
             // Authenticate the insert
         }
 
