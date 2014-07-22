@@ -7,6 +7,14 @@
     
     $check =$con->query( "SELECT auth FROM user WHERE user_id = '$user_id' ");
 
+    //if false
+    if (!$check){
+      die($con->error);
+    }
+    //true
+    if ($check->num_rows > 0){
+        
+    }
     $response = 'default';
     $success = false;
     $verified = 'boobs and ass';  // This is the reply necessary to gain a successful VERIFICATION
