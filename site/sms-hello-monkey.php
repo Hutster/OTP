@@ -13,6 +13,8 @@
     $unsubscribeResponse = 'Well you are lame.'; //  Reply message for successful unsubscribtion
         
     $rejection = 'Sorry, I didn\'t understand that. Reply with "boobs and ass" to become verified, or "FU" to unsubscribe.'; // Message of rejection
+
+    $repeatResponse = 'Looks like you are already subscribed!';
  
 	// Check if we've got good data
 	if ( (strlen($user_phone) >= 10) && (strlen($message) >= 1) ) {
@@ -21,7 +23,6 @@
         
         // Check if they are to be verified
         if ( strcasecmp($message, $verified ) == 0 ) {
-            $response = $verifiedResponse;
             $success = true;
         }
         
@@ -48,14 +49,22 @@
     require 'config/db-connect.php';        //databse connect
     $result = $con->query("SELECT * FROM user WHERE user_phone = $user_phone ");
     while($row = $result->fetch_array()){ $user_name = $row['user_fname']; }
+    
+    echo '<Response>'; //Begin the response
+    echo '<Message> Hello ' . $user_name;
 
-    echo '<Response>';
-	echo '<Message> Hello ' . $user_name . '. ' . $response . '</Message>';
-    
-    
     if ( $success ) {
-        require 'auth-sql.php';
+        require 'auth-sql.php';    // Authenticate the insert
     }
 
-	echo '</Response>';
+    if ( $authSuccess ) {
+        $response = $verifiedResponse;
+    }
+
+    else {
+        $response = $repeatResponse;
+    }
+    
+    echo $response . '</Message>';
+    echo '</Response>';
 ?>

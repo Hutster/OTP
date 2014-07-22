@@ -19,9 +19,11 @@ if (!$check){
 //if the output has more than 0 rows...aka already authenicated
 if ($check->num_rows > 0){
     //do something to alert user that he already is authenicated
+    $authSuccess = false;
 }else {
     //mark user as authenticaed by inserting into auth table
-     $result = $con->query("INSERT INTO `authenticate`(`user_id`, `auth_bool`) VALUES ($user_id,true)"); 
+    $result = $con->query("INSERT INTO `authenticate`(`user_id`, `auth_bool`) VALUES ($user_id,true)"); 
+    $authSuccess = true;
 }
 
     
