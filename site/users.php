@@ -3,6 +3,14 @@
     require 'config/db-connect.php';        //databse connect
     $query = "SELECT * FROM user WHERE auth='1'";
 
-    echo $query;
+    if($result = $con->query("SELECT * FROM user WHERE auth='1'")){
+        if($result->num_rows){                          //if the query has a result, then dislpay data
+            while($rows = $result->fetch_assoc()){      //loop through result and display mesages
+                $userID = $rows['user_id'];
+                $content = $rows['user_fname'];
+                echo $userID.': '.$content, '</br></br>';
+        }  
+    }
+}
 
 ?>
