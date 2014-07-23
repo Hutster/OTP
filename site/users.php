@@ -9,6 +9,7 @@
                 $userID = $rows['user_id'];
                 $userName = $rows['user_fname'];
                 echo $userID. ': <a href="http://stugl.com/conversation.php?id=' . $userID . '"> '. $userName . '</a></br>';
+
         }  
     }
 }
