@@ -1,5 +1,6 @@
 <?php
-   
+require 'config/db-connect.php';        //databse connect
+
 
 $id = $_GET['id'];
     
@@ -11,7 +12,7 @@ if($result = $con->query("SELECT * FROM messages WHERE sender = '$id' OR recipie
         while($rows = $result->fetch_assoc()){      //loop through result and display mesages
             $userID = $rows['sender'];
             $content = $rows['content'];
-            echo $user_id.': '.$content, '</br></br>';
+            echo $userID.': '.$content, '</br></br>';
         }  
     }
 }
