@@ -1,11 +1,9 @@
 <?php
-	echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
+	echo '<?xml version="1.0" encoding="UTF-8" ?>';
     require 'config/db-connect.php';        //databse connect
 
     $user_phone = $_REQUEST['From'];
 	$message = $_REQUEST['Body'];
-//    $user_phone = "+13306714458";
-//	$message = "boobs and ass";
 
     $result = $con->query("SELECT user_id FROM user WHERE user_phone = $user_phone "); //get user id from phone
     while ($row = $result->fetch_assoc()) {$user_id = $row['user_id'];}
@@ -20,9 +18,12 @@
         //echo "you're in the loop";
         $query = "INSERT INTO messages(userID, content) VALUES ('$user_id','$message')";
         mysqli_query($con,$query);
+        echo '<Response>';
+        echo '</Response>';
         
     }
-    if ($check ==0){
+
+    if ($check == 0){
         
         $response = 'default';
         $success = false;
