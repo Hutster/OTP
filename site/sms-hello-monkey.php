@@ -4,6 +4,7 @@
 
     $user_phone = $_REQUEST['From'];
 	$message = $_REQUEST['Body'];
+    $twilioPhone = $_REQUEST['To'];
 
     $result = $con->query("SELECT user_id FROM user WHERE user_phone = $user_phone "); //get user id from phone
     while ($row = $result->fetch_assoc()) {$user_id = $row['user_id'];}
@@ -16,7 +17,7 @@
     //USER IS AUTHETICATED
     if ($check == 1){
         //echo "you're in the loop";
-        $query = "INSERT INTO messages(userID, content, sender) VALUES ('$user_id','$message','$user_phone')";
+        $query = "INSERT INTO messages(userID, content, sender, recipient) VALUES ('$user_id','$message','$user_phone','$twilioPhone')";
         mysqli_query($con,$query);
         echo '<Response>';
         echo '</Response>';
