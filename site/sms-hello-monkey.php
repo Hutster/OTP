@@ -17,7 +17,8 @@
     //USER IS AUTHETICATED
     if ($check == 1){
         //echo "you're in the loop";
-        $query = "INSERT INTO messages(userID, content, sender, recipient) VALUES ('$user_id','$message','$user_phone','$twilioPhone')";
+        $query = "INSERT INTO messages(userID, content, sender) VALUES ('$user_id','$message','$user_ID')";
+        //ADD IN SOMETHING TO SEE WHO THE ACTIVE OTP USER IS AND PUT THEM AS THE RECIPIENT
         mysqli_query($con,$query);
         echo '<Response>';
         echo '</Response>';
