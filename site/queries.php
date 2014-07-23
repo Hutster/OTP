@@ -10,10 +10,6 @@ $query = "SELECT * FROM user WHERE auth='1'";
 //@output -> messID, userID, content, timestamp
 $query = "SELECT * FROM messages WHERE userID = ".$user_id." ORDER BY timestamp asc";
 
-
-
-
-
 ////recordMessage()////                 <-THOMAS: PUT THE FOLLOWING CODE WHERE YOU WANT TO INSERT A MESSAGE
 //insert messages from a user
 //@params -> $user_id, $messageContent
@@ -21,11 +17,6 @@ $query = "SELECT * FROM messages WHERE userID = ".$user_id." ORDER BY timestamp 
 require 'config/db-connect.php';        //databse connect
 $query = "INSERT INTO `messages`(`userID`, `content`) VALUES ($user_id,$messageContent)";
 mysqli_query($con,$query);
-
-
-
-
-
 
 //insert user info
 //@params -> $user_fname, $user_phone
@@ -47,5 +38,9 @@ $query = "SELECT auth FROM user WHERE user_id = '$user_id' ";
 //@output -> null
 $query = "UPDATE user SET auth = 'true' WHERE user_id = $user_id";
 
+//insert message from otp user
+//@params -> 
+//@output -> null
+$query = "INSERT INTO messages(content, sender) VALUES ($message','$user_id')";
 
 ?>
