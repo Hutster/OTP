@@ -16,7 +16,7 @@
     //USER IS AUTHETICATED
     if ($check == 1){
         //echo "you're in the loop";
-        $query = "INSERT INTO messages(userID, content) VALUES ('$user_id','$message')";
+        $query = "INSERT INTO messages(userID, content, sender) VALUES ('$user_id','$message','$user_phone')";
         mysqli_query($con,$query);
         echo '<Response>';
         echo '</Response>';
