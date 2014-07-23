@@ -1,5 +1,8 @@
 <?php
    
+
+    $id = $_GET['id'];
+    echo $id;
 //Thomas: we need the user_id from somewhere
 //I think this file is called from sms-monkey once the user replies to twilio
 

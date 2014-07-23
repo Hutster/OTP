@@ -7,8 +7,8 @@
         if($result->num_rows){                          //if the query has a result, then dislpay data
             while($rows = $result->fetch_assoc()){      //loop through result and display mesages
                 $userID = $rows['user_id'];
-                $content = $rows['user_fname'];
-                echo $userID.': '.$content, '</br></br>';
+                $userName = $rows['user_fname'];
+                echo $userID. ': <a href="http://stugl.com/conversation.php?id=' . $userID . '"> '. $userName . '</a></br>';
         }  
     }
 }
