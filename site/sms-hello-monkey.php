@@ -76,7 +76,7 @@
         if ( $success ) {
              $query = "UPDATE user SET auth = '1' WHERE user_id = '$user_id'"; 
              mysqli_query($con,$query);
-              $response = $verifiedResponse;
+             $response = $verifiedResponse;
             // Authenticate the insert
         }
 
