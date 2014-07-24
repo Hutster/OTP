@@ -4,7 +4,9 @@ require 'config/db-connect.php';        //databse connect
 
 $id = $_GET['id'];
     
+
 ////some of the below can be replaced with: getMessages()////
+////ADD IN A CONCATENATE FUNCTION IF TIMESTAMPS ARE THE SAME////
 
 //if there are no syntax errors then execute
 if($result = $con->query("SELECT * FROM messages WHERE sender = '$id' OR recipient = '$id' ORDER BY timestamp ASC")){
