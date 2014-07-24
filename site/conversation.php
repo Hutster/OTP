@@ -30,15 +30,15 @@ if($result = $con->query("SELECT * FROM messages WHERE sender = '$id' OR recipie
 //1. OTP EMPLOYEE TYPES REPLY AND HITS THE SUBMIT BUTTON
 //2. THAT MESSAGE IS SENT TO THE USER VIA TWILLIO NUMBER: +1-224-374-1995
 
-//this code is executed ON_CLICK of the REPLY button
-//send text to the userPhone number
-$sms = $client->account->messages->sendMessage($twilioNumber, $userPhone, $otpReply);
-echo "Sent message to $name ";
+    //this code is executed ON_CLICK of the REPLY button
+    //send text to the userPhone number
+    $sms = $client->account->messages->sendMessage($twilioNumber, $userPhone, $otpReply);
+    echo "Sent message to $userID";
         
 //3. THE MESSAGE is INSERTED INTO DATABASE -> make this a function...second time we've used it
-$otpReply = $con->real_escape_string($otpReply); //escape for special chars
-$query = "INSERT INTO messages(content, sender) VALUES ('$message','$twilioNumber')"; //sender is twil number for now...
-mysqli_query($con,$query);
+    $otpReply = $con->real_escape_string($otpReply); //escape for special chars
+    $query = "INSERT INTO messages(content, sender) VALUES ('$message','$twilioNumber')"; //sender is twil number for now...
+    mysqli_query($con,$query);
 
 //4. THE MESSAGE APPEARS IN THE ABOVE BOX WITHOUT HAVING TO REFRESH
 //5. USER REPLIES AND MESSAGE APPEARS IN BOX WITHOUT REFRESHING
