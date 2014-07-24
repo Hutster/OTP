@@ -19,7 +19,6 @@
         //echo "you're in the loop";
         $message = $con->real_escape_string($message);
         $query = "INSERT INTO messages(content, sender) VALUES ('$message','$user_id')";
-        //ADD IN SOMETHING TO SEE WHO THE ACTIVE OTP USER IS AND PUT THEM AS THE RECIPIENT
         mysqli_query($con,$query);
         echo '<Response>';
         echo '</Response>';
