@@ -72,14 +72,14 @@ html {
         margin: 10px 0 10px 0;
     }
     
-    input{
+    input#name, input#phone{
         font-family: 'Ubuntu', sans-serif;
         font-weight: 400;
         border-radius:6px;
         margin: 2%;
     }
 
-    input.textarea{
+    input#name, input#phone{
         text-align: center;
         margin: 0 auto;
         width: 80%;
@@ -90,7 +90,7 @@ html {
     }
 
     
-    input#submit{
+    .submit_btn{
         border:0px solid #f4f4f4;
         cursor:pointer;
         font-family: 'Ubuntu', sans-serif;
@@ -110,7 +110,7 @@ html {
         text-shadow: -1px -1px 0 rgba(0,0,0,0.3);font-weight:bold; color: #FFFFFF;
     }
     
-    input#submit:hover {
+    .submit_btn:hover {
         background-color: #36780f; 
         background-image: -webkit-gradient(linear, left top, left bottom, from(#36780f), to(#005900));
         background-image: -webkit-linear-gradient(top, #36780f, #005900);
@@ -125,14 +125,14 @@ html {
         transition: background-image .5s ease-in;
     }
     
-    form {
-        margin: 10px 0 0 0;
+    form, fieldset {
+        margin: 0;
     }
 
     .shading{
         background: rgba(0, 0, 0, .5);
-        margin: 0 auto 20px;
-        padding: 15px 0;
+        margin: 0 auto 10px;
+        padding: 5px 0;
         display: block;
     }
 
@@ -141,25 +141,10 @@ html {
     }
     
     #signup {
-        border: 1px solid rgba(255, 255, 255, .5);
         width: 50%;
         min-width: 276px;
-        margin: 20px auto;
+        margin: 15px auto;
         text-align: center;
-    }
-
-    input.validated {
-        background:hsl(120, 50%, 90%);
-        border-color:hsl(120, 50%, 50%);
-        color: black;
-        font-weight: 400;
-    }
-
-    input.papilated {
-        border-color:hsl(0, 50%, 50%);
-        background:hsl(0, 50%, 90%);
-        color: red;
-        font-weight: 700;
     }
 
     .note {
@@ -170,8 +155,8 @@ html {
 
     .bottom {
         Width: 100%;
-        Height: 40px;
-        margin-top: 40px;
+        Height: 20px;
+        margin-top: 30px;
         display: block;
         
         color: white;
@@ -180,4 +165,22 @@ html {
         font-size: .8em;
         text-align: center;
         font-style: italic;
+    }
+
+    .success{
+        background: #CFFFF5;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #B9ECCE;
+        border-radius: 5px;
+        font-weight: normal;
+    }
+    
+    .error{
+        background: #FFDFDF;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #FFCACA;
+        border-radius: 5px;
+        font-weight: normal;
     }
