@@ -17,7 +17,7 @@
     //USER IS AUTHETICATED
     if ($check == 1){
         //echo "you're in the loop";
-        $query = "INSERT INTO messages(content, sender) VALUES ($message','$user_id')";
+        $query = "INSERT INTO messages(content, sender) VALUES ('$message','$user_id')";
         //ADD IN SOMETHING TO SEE WHO THE ACTIVE OTP USER IS AND PUT THEM AS THE RECIPIENT
         mysqli_query($con,$query);
         echo '<Response>';
