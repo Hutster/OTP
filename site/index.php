@@ -1,15 +1,14 @@
 <html lang="en">
 <head>
     
-    
 	<!-- Basic Page Needs
   ================================================== -->
 	<meta charset="utf-8">
-	<title>Texting Like a Boss</title>
-	<meta name="description" content="">
-	<meta name="author" content="">
-    <link rel="image_src" href="http://hutster.com/images/HutsterLogo_Website.png" />
-    <meta property="og:image"content="http://hutster.com/images/HutsterLogo_Website.png" />
+	<title>Off Track Planet | Exploration Guide</title></title>
+	<meta name="description" content="The fastest and easiest way to explore someplace new.">
+	<meta name="author" content="S&T">
+    <link rel="image_src" href="http://stugl.com/images/otp_logo.svg" />
+    <meta property="og:image"content="http://stugl.com/images/otp_logo.svg" />
 
 	<!-- Mobile Specific Metas
   ================================================== -->
@@ -27,82 +26,89 @@
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
     
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
     <script type="text/javascript">
-        function validate()
-        {
-            
-           if( document.main.name.value == "" || document.main.name.length < 2)
-           {
-             alert( "Please provide your name!" );
-             document.main.name.focus() ;
-             return false;
-           }
-           if( document.main.phone.value == "" )
-           {
-             alert( "Please provide your phone number!" );
-             document.main.phone.focus() ;
-             return false;
-           }
-            
-           var newPhone = document.main.phone.value
-           newPhone = newPhone.replace(/[^0-9]/g, '');
-            
-           if( newPhone.length != 10 )
-           {
-             alert( "Please provide a 10 digit phone number!" );
-             document.main.phone.focus() ;
-             return false;
-           } 
-            
-           return( true );
-        }
-        //-->
+    $(document).ready(function() {
+        $("#submit_btn").click(function() { 
+            //get input field values
+            var user_name       = $('input[name=name]').val(); 
+            var user_phone      = $('input[name=phone]').val();
+
+            //simple validation at client's end
+            //we simply change border color to red if empty field using .css()
+                //data to be sent to server
+                post_data = {'userName':user_name, 'userPhone':user_phone};
+
+                //Ajax post data to server
+                $.post('contact_me.php', post_data, function(response){  
+
+                    //load json data from server and output message     
+                    if(response.type == 'error')
+                    {
+                        output = '<div class="error">'+response.text+'</div>';
+                    }else{
+                        output = '<div class="success">'+response.text+'</div>';
+
+                        //reset values in all input fields
+                        $('#contact_form input').val(''); 
+                        $('#contact_form textarea').val(''); 
+                    }
+
+                    $("#result").hide().html(output).slideDown();
+                }, 'json');
+
+        });
+
+        //reset previously set border colors and hide all message on .keyup()
+        $("#contact_form input, #contact_form textarea").keyup(function() { 
+            $("#contact_form input, #contact_form textarea").css('border-color',''); 
+            $("#result").slideUp();
+        });
+
+    });
     </script>
 </head>
 <body>
-
-
-
-	<!-- Primary Page Layout
-	================================================== -->
-
-	<!-- Delete everything in this .container and get started on your own site! -->
-    
 	<div class="container">
-        <img id="logo" src="/../images/HutsterLogo_Website.png" style="padding: 20px 0px" alt="Hutster Student Sublets"/>
+        <img id="logo" src="/images/otp_logo.svg" style="padding: 20px 0px" alt="Off Track Planet"/>
         
 		<div class="shading sixteen columns">
             <div class="row">
                 <div class="offset-by-two twelve columns alpha">
                     <h1 id="landing">
-                        The <strong>fastest and easiest</strong> way to explore a new city, the <strong><i>right way</i></strong>.
+                        The <strong>fastest and easiest</strong> way to explore someplace new.
                     </h1>
                 </div>
             </div>
             
-            <div id="mc_embed_signup">
-                <form name="main" action="db-inserts.php" class="validate" method="post" onsubmit="return(validate());" novalidate>
-                    <div class="row">
-                    <input id="contact-form" type="text" name="name" class="textarea" placeholder="first name" tabindex="1">
-                    </div>
+            <div id="signup">
+                <fieldset id="contact_form">
+                    <div id="result"></div>
+
+                        <div class="row">
+                            <h4>What's your mom call you?</h4>
+                            <input type="text" name="name" id="name" placeholder="" />
+                        </div>
+
+                        <div class="row"> 
+                        <h4>What are your digits?</h4>
+                        <input type="text" name="phone" id="phone" placeholder="" />
+                        </div>
+
+                        <div class="row">
+                        <button class="submit_btn" id="submit_btn">Sign up!</button>
+                        </div>
                     
-                    <div class="row"> 
-                        <input id="contact-form" type="tel" name="phone" class="textarea" maxlength="15" size="10" placeholder="phone number " tabindex="2">
-                    </div>
-                    
-                    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-                    <div style="position: absolute; left: -5000px;">
-                         <input type="text" name="b" value="">
-                    </div>
-                    <input type="submit" value="Register" name="register" id="submit" class="button">
-                    
-                </form>
+                </fieldset>
             </div>
-            
+             
+	    </div>
         
-        <div class="row"></div>
-        
-	</div><!-- container -->
+    </div><!-- container -->
+    
+    <div class="bottom">A creation by S&amp;T</div>
+
+
 
 <!-- End Document
 ================================================== -->
