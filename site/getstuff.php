@@ -32,7 +32,7 @@ if($_POST) {
     ///////////////////////
     ///DISPLAY MESSAGES//// 
     ///////////////////////
-    if($result = $con->query("  SELECT user.user_fname, messages.content, messages.timestamp 
+    if($result = $con->query("  SELECT user.user_fname, messages.content, DATE_FORMAT(messages.timestamp,'%b/%d/%y at %h:%i%p') as timestamp 
                                 FROM messages 
                                 INNER JOIN user
                                 ON user.user_id = messages.sender
@@ -43,7 +43,7 @@ if($_POST) {
                 $userName = $rows['user_fname'];
                 $content = $rows['content'];
                 $timestamp = $rows['timestamp'];
-                echo $timestamp.':     '.$userName.': '.$content, '</br></br>';
+                echo $timestamp.':     '.$userName.': <strong>'.$content, '</strong></br></br>';
             }  
         }
     }
