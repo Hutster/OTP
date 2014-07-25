@@ -32,12 +32,18 @@ if($_POST) {
     ///////////////////////
     ///DISPLAY MESSAGES//// 
     ///////////////////////
-    if($result = $con->query("SELECT * FROM messages WHERE sender = '$id' OR recipient = '$id' ORDER BY timestamp ASC")){
+    if($result = $con->query("  SELECT user.user_fname, messages.content, messages.timestamp 
+                                FROM messages 
+                                INNER JOIN user
+                                ON user.user_id = messages.sender
+                                WHERE sender = '$id' OR recipient = '$id' 
+                                ORDER BY timestamp ASC")){
         if($result->num_rows){                          //if the query has a result, then dislpay data
             while($rows = $result->fetch_assoc()){      //loop through result and display mesages
-                $userID = $rows['sender'];
+                $userName = $rows['user_fname'];
                 $content = $rows['content'];
-                echo $userID.': '.$content, '</br></br>';
+                $timestamp = $rows['timestamp'];
+                echo $timestamp.':     '.$userName.': '.$content, '</br></br>';
             }  
         }
     }
