@@ -57,12 +57,10 @@
     
     <!-- MAKE NOTE THAT THE PHP CODE THAT RETRIEVES THAT USER ID AND THEN THE USER PHONE NUMBER MUST BE ABOVE THE SCRIPT!!!!! -->    
     <?php
-        $id = $_GET['id'];  
+        $id = $_GET['id'];   //get id from url
         require 'config/db-connect.php';        //databse connect
-        $query = "SELECT user_phone FROM user WHERE user_id = $id "; //get the selected users phone based on user id
-        while ($row = $query->fetch_assoc()) {$userPhone = $row['user_phone'];} //store in variable $userPhone
-        
-
+        $result = $con->query("SELECT user_phone FROM user WHERE user_id = $id "); //get the selected users phone based on user id
+        while ($rows = $result->fetch_assoc()) {$userPhone = $rows['user_phone'];} //store in variable $userPhone 
     ?>
     
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>

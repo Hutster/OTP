@@ -18,7 +18,7 @@
     if ($check == 1){
         //echo "you're in the loop";
         $message = $con->real_escape_string($message);
-        $query = "INSERT INTO messages(content, sender) VALUES ('$message','$user_id')";
+        $query = "INSERT INTO messages(content, sender, recipient) VALUES ('$message','$user_id', $twilioPhone)";
         mysqli_query($con,$query);
         echo '<Response>';
         echo '</Response>';

@@ -4,8 +4,8 @@ require "twilio/Services/Twilio.php";  //TWILO FRAMEWORK
 $id = $_GET['id'];                      //GET THE USER ID FROM THE URL SEND FROM USERS.PHP
 $twilioNumber = '+12243741995';         //assign the twilio number that OTP will be sending from
 
-$query = "SELECT user_phone FROM user WHERE user_id = $id "; //get the selected users phone based on user id
-while ($row = $query->fetch_assoc()) {$userPhone = $row['user_phone'];} //store in variable $userPhone
+//$query = "SELECT user_phone FROM user WHERE user_id = $id "; //get the selected users phone based on user id
+//while ($row = $query->fetch_assoc()) {$userPhone = $row['user_phone'];} //store in variable $userPhone
 
 ///////////////////////
 ///DISPLAY MESSAGES//// 

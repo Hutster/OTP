@@ -1,4 +1,10 @@
 <?php
+
+/// SEND INITIAL TEXT MESSAGE, INSERT INTO DATABASE, AND EXIT WITH SUCCESS
+require "twilio/Services/Twilio.php"; //twilio library
+require 'config/twilio-connect.php';    //twilio credentials...not sure if this will work
+require 'config/db-connect.php';        //databse connect
+
 if($_POST)
 {
     
@@ -31,16 +37,20 @@ if($_POST)
 	$otp_Reply        = filter_var($_POST["otpReply"], FILTER_SANITIZE_STRING);
     $user_Phone        = filter_var($_POST["userPhone"], FILTER_SANITIZE_STRING);
 	
-	
-    /// SEND INITIAL TEXT MESSAGE, INSERT INTO DATABASE, AND EXIT WITH SUCCESS
-    require "twilio/Services/Twilio.php"; //twilio library
-    require 'config/twilio-connect.php';    //twilio credentials...not sure if this will work
 
-    
     ////Send confirmation text////
     /////////////////////////////
     $sms = $client->account->messages->sendMessage($twilioNumber, $user_Phone, $otp_Reply);
  
+    //insert message into database
+    //get user id from phone....make this a method you stupidhead sean
+    $result = $con->query("SELECT user_id FROM user WHERE user_phone = $user_Phone "); //get the selected users phone based on user id
+    while ($rows = $result->fetch_assoc()) {$userID = $rows['user_id'];} //store in variable $userPhone 
+    
+    $otpReply = $con->real_escape_string($otp_Reply); //escape for special chars
+    $query = "INSERT INTO messages(content, sender,recipient) VALUES ('$otpReply','$twilioNumber','$userID')"; //sender is twil number for now...
+    mysqli_query($con,$query);
+    
 
     if (!$sms) {
         $output = json_encode(array('type'=>'error', 'text' => 'Could not send text message!'));
