@@ -27,7 +27,7 @@ if($_POST)
     } 
 	
 	//check $_POST vars are set, exit if any missing
-	if(!isset($_POST["otpReply"]) )
+	if(!isset($_POST["otpReply"]) || !isset($_POST["userPhone"]) )
 	{
 		$output = json_encode(array('type'=>'error', 'text' => 'Input field is empty!'));
 		die($output);

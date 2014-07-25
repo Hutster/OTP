@@ -58,6 +58,7 @@
     <!-- MAKE NOTE THAT THE PHP CODE THAT RETRIEVES THAT USER ID AND THEN THE USER PHONE NUMBER MUST BE ABOVE THE SCRIPT!!!!! -->    
     <?php
         $id = $_GET['id'];   //get id from url
+        $userID = $id;
         require 'config/db-connect.php';        //databse connect
         $result = $con->query("SELECT user_phone FROM user WHERE user_id = $id "); //get the selected users phone based on user id
         while ($rows = $result->fetch_assoc()) {$userPhone = $rows['user_phone'];} //store in variable $userPhone 
@@ -93,7 +94,46 @@
                 }, 'json');
 
         });
+    
+            
+        function loadmessages(){
+            $(function() {
 
+                // show that something is loading
+                $('#response').html("<b>Loading response...</b>");
+
+                /*
+                 * 'post_receiver.php' - where you will pass the form data
+                 * $(this).serialize() - to easily read form data
+                 * function(data){... - data contains the response from post_receiver.php
+                 */
+                var user_id  = "<?php echo $userID; ?>";
+                datas = {'userID':user_id};
+            
+                $.post('getstuff.php', datas, function(data){
+
+                    // show the response
+                    //$('#response').hide().html(data).slideDown();
+                    $('#response').html(data);
+
+                }).fail(function() {
+
+                    // just in case posting your form failed
+                    alert( "Posting failed." );
+
+                });
+
+                // to prevent refreshing the whole page page
+                return false;
+
+        });
+        }
+        
+        setInterval( loadmessages, 5000 );
+        
+        var myDiv = document.getElementById("conversationBox");
+        myDiv.scrollTop = myDiv.scrollHeight;
+                
         //reset previously set border colors and hide all message on .keyup()
         $("#contact_form input, #contact_form textarea").keyup(function() { 
             $("#contact_form input, #contact_form textarea").css('border-color',''); 
@@ -108,8 +148,8 @@
 <body>
 	<div class="container">
         
-        <div class="conversationBox">
-        
+        <div class="conversationBox" id="conversationBox">
+            <div id='response'></div>
         </div>
         
         <fieldset id="contact_form">
@@ -117,6 +157,8 @@
             <input class="reply" name="reply" id="reply"/>
             <button class="reply_btn" id="reply_btn">Reply</button>
         </fieldset>
+        
+        <button class="refresh" id="refresh">Refresh</button>
         
         
     </div><!-- container -->
