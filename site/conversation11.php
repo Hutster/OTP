@@ -57,7 +57,10 @@
     
     <!-- MAKE NOTE THAT THE PHP CODE THAT RETRIEVES THAT USER ID AND THEN THE USER PHONE NUMBER MUST BE ABOVE THE SCRIPT!!!!! -->    
     <?php
-        $userPhone = '+18472261310';
+        require 'config/db-connect.php';        //databse connect
+        $query = "SELECT user_phone FROM user WHERE user_id = $id "; //get the selected users phone based on user id
+        while ($row = $query->fetch_assoc()) {$userPhone = $row['user_phone'];} //store in variable $userPhone
+        
 
     ?>
     
