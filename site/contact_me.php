@@ -70,7 +70,7 @@ if($_POST)
     ////Send confirmation text////
     /////////////////////////////
     $sms = $client->account->messages->sendMessage(
-    $twilio_num, $user_Phone, "Hey " . $user_Name . ", thanks for signing up with OTP! Respond with 'This is dope' to confirm your subsciption.");
+    $twilio_num, $user_Phone, "Hey " . $user_Name . ", thanks for signing up with OTP! But before we get started respond with 'Gypsy Adventures' just so we know for sure you are human :)");
  
 
     if (!$sms) {

@@ -29,13 +29,13 @@
         
         $response = 'default';
         $success = false;
-        $verified = 'boobs and ass';  // This is the reply necessary to gain a successful VERIFICATION
-        $verifiedResponse = 'You have been verified! Good thing you like boobs and ass.';  // Reply message for successful verification
+        $verified = 'gypsy adventures';  // This is the reply necessary to gain a successful VERIFICATION
+        $verifiedResponse = "BOOOOMMMM!!! You're human AF!!! How can we help you explore the biggest apple around, aka NYC?";  // Reply message for successful verification
 
-        $unsubscribe = 'FU';  // This is the reply necessary to gain sucessful UNSUBSCRIBTION
+        $unsubscribe = 'peace out';  // This is the reply necessary to gain sucessful UNSUBSCRIBTION
         $unsubscribeResponse = 'Well you are lame.'; //  Reply message for successful unsubscribtion
 
-        $rejection = 'Sorry, I didn\'t understand that. Reply with "boobs and ass" to become verified, or "FU" to unsubscribe.'; // Message of rejection
+        $rejection = 'I\'m sorry but I didn\'t understand that. Reply with "gypsy adventures" if you are awesome, or "peace out" if you are not.'; // Message of rejection
 
         $repeatResponse = 'Looks like you are already subscribed!';
 
@@ -73,7 +73,7 @@
         while($row = $result->fetch_array()){ $user_name = $row['user_fname']; }
 
         echo '<Response>'; //Begin the response
-        echo '<Message> Hello ' . $user_name;
+        echo '<Message>';
 
         if ( $success ) {
              $query = "UPDATE user SET auth = '1' WHERE user_id = '$user_id'"; 
