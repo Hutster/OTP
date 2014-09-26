@@ -1,0 +1,135 @@
+ html {
+   min-height: 100%;
+ }
+
+body {
+  height: 100%;
+}
+
+#logo {
+  width: 15%;
+  min-width: 7.5rem;
+  display: block;
+  margin: 1.5rem auto;  
+}
+
+#title {
+  font-family: gothic;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: .55rem;
+  text-align: center;
+  text-transform: uppercase;
+  color: #5C5858;
+  margin: 1rem 0;
+}
+
+.row {
+  max-width: 72.5rem; 
+}
+
+.bars {
+  width: 100%;
+  display: block;
+  margin: 2rem auto;
+  border-bottom: 1px solid #B6B6B4; 
+}
+
+.books {
+  width: 80%;
+  display: block;
+  margin: 1rem auto;
+  -webkit-box-shadow: 5px 5px 24px 7px rgba(0,0,0,0.35);
+  -moz-box-shadow: 5px 5px 24px 7px rgba(0,0,0,0.35);
+  box-shadow: 5px 5px 24px 7px rgba(0,0,0,0.35);
+}
+
+#bottom-archive {
+  font-family: gothicBold;
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: .2rem;
+  text-align: left;
+  text-transform: uppercase;
+  color: #313131;
+}
+
+
+h1 {
+  font-family: gothic;
+}
+
+@font-face {
+    font-family: gothic;
+    src: url("/../fonts/gothic.ttf");
+}
+
+@font-face {
+    font-family: gothicBold;
+    src: url("/../fonts/gothicb.ttf");
+}
+
+#title_signup {
+  font-family: gothic;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: .55rem;
+  text-align: center;
+  text-transform: uppercase;
+  color: #FFF;
+  margin: 1rem 0;
+}
+
+.labels input{
+  text-align: center;
+  font-family: gothic;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: .1rem;
+  text-transform: uppercase;
+  color: #313131;
+}
+
+.labels h2 {
+  font-family: gothic;
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: normal;
+  text-align: center;
+  text-transform: none;
+  color: #fff;
+  margin: .95rem 0;
+}
+
+input#name, input#phone{
+  max-width: 25rem;
+  display: block;
+  margin: 0 auto;
+}
+
+.space {
+  margin: 1rem 0;
+}
+
+input#activate {
+  width: 13rem;
+  display: block;
+  margin: 3rem auto 1.5rem;
+  color: #fff;
+  background-color: #cf5643;
+}
+
+input#activate:hover {
+  background-color: #cf3c24;
+}
+
+#bottom-safe {
+  font-family: gothic;
+  font-size: .8rem;
+  font-weight: 500;
+  letter-spacing: .2rem;
+  text-align: center;
+  text-transform: uppercase;
+  color: #fff;
+  margin: 2rem;
+}
